@@ -2,7 +2,8 @@ class UserDatabase(object):
     user_names = {}
     addresses = {}
 
-    UserDatabase()
+    def __init__(self):
+        self.readDb()
 
     def readDb():
         for row in open("user_database.txt"):
@@ -19,4 +20,3 @@ class UserDatabase(object):
 
 
 
-myDb = UserDatabase()
