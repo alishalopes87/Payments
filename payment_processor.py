@@ -1,5 +1,6 @@
 from incoming_request import IncomingRequest
 from user_database import *
+import sys 
 #python logging module 
 import logging 
 
@@ -23,6 +24,7 @@ logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S
 logging.warning('is when this event was logged.')
 
 def validator(card_num):
+    """validates credit card base on 16 digit input"""
 
     validatelist=[]
 
@@ -70,7 +72,7 @@ class PaymentProcessor(object):
                     return True
 
                 except:
-                    print("Unexpected error:", sys.exc_info()[0])
+                    logging.warning("Unexpected error:", sys.exc_info()[0])
                     return False
 
         return False 

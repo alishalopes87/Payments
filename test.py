@@ -8,11 +8,6 @@ import logging
 #added unit tests 
 
 
-logger = logging.getLogger()
-logger.level = logging.DEBUG
-stream_handler = logging.StreamHandler(sys.stdout)
-logger.addHandler(stream_handler)
-
 
 
 class TestPaymentProcessor(unittest.TestCase):
@@ -20,7 +15,14 @@ class TestPaymentProcessor(unittest.TestCase):
 
     # def setUpClass(cls):
     #     cls._connection = createExpensiveConnectionObject()
-    def testSimpleMsg(self):
+    def test_logging(self):
+        """Test logging module"""
+
+        logger = logging.getLogger()
+        logger.level = logging.DEBUG
+        stream_handler = logging.StreamHandler(sys.stdout)
+        logger.addHandler(stream_handler)
+
         stream_handler.stream = sys.stdout
         print("AA")
         logging.getLogger().info("BB")
@@ -35,6 +37,8 @@ class TestPaymentProcessor(unittest.TestCase):
         self.assertTrue(result)
 
     def test_incoming_request(self):
+        """Test data from incoming request"""
+
         incoming_request = IncomingRequest()
         incoming_request.user_id = 1;
         incoming_request.user_name = "ABC";
@@ -45,10 +49,12 @@ class TestPaymentProcessor(unittest.TestCase):
         assert incoming_request.amount > 0
 
     def test_new_user(self):
+        """Test add user function"""
+        
         user_database = UserDatabase()
 
-        user_database.add_new_user(1, "Alisha Lopes", "200 Shady Acres")
-        self.assertTrue(1 in user_database.user_names)
+        user_database.add_new_user(3, "Alisha Lopes", "200 Shady Acres")
+        self.assertTrue(3 in user_database.user_names)
         
 
 
