@@ -17,3 +17,4 @@ print(succesful_payment)
 # Check on successful payment,
 #  a success code is sent to the application 
 #  and a confirmation page is shown to the user
+

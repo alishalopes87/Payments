@@ -15,7 +15,7 @@ import logging
 #add test
 
 #add logging print out info to retroactively figure out what happened
-logging.basicConfig(filename='example.log',level=logging.DEBUG)
+logging.basicConfig(filename='payment_processor.log',level=logging.DEBUG)
 logging.debug('This message should go to the log file')
 logging.info('So should this')
 logging.warning('And this, too')
@@ -72,7 +72,8 @@ class PaymentProcessor(object):
                     return True
 
                 except:
-                    logging.warning("Unexpected error:", sys.exc_info()[0])
+                    #log exception error 
+                    logging.warning("Unexpected error: %s",sys.exc_info()[0])
                     return False
 
         return False 
