@@ -1,6 +1,6 @@
 class IncomingRequest(object):
-    userId = None
-    userName = None
-    billingAddress = None
+    user_id = None
+    user_name = None
+    billing_address = None
     amount = None
-    cardnumber = None
+    card_number = None
